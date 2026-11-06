@@ -53,42 +53,17 @@ python main.py
 
 ## Reflection
 
-### 1. Why did I use an abstract parent class?
+### 1. Why is LibraryItem abstract, and what happens if DVD forgets to write late_fee()?
 
-I used LibraryItem as an abstract parent class to define
-common properties and behaviours for all library items.
+LibraryItem is an abstract class because it provides common properties and methods for all library items while requiring every child class to implement its own `late_fee()` method. If DVD forgets to implement `late_fee()`, Python raises a `TypeError` when we try to create a DVD object because it has not implemented the required abstract method.
 
-The abstract method late_fee() ensures that every child
-class implements its own late fee calculation.
+### 2. What happens when you read item.__available from outside the class, and why do we use is_available() instead?
 
-This avoids code duplication and provides a common
-structure for all item types.
+When we try to access `item.__available` directly from outside the class, Python raises an `AttributeError` because the double underscore triggers name mangling. We use `is_available()` instead because it provides a controlled way to check the item's availability without directly accessing its private attribute.
 
-### 2. How did I implement encapsulation?
+### 3. What is the difference between LibraryItem.total_items and self.title?
 
-I used double underscore attributes to protect the
-availability status and the member's borrowed-item list.
-
-The availability can be checked using is_available(),
-and the borrowed item titles can be retrieved using
-borrowed_titles().
-
-This ensures that the internal data is managed through
-methods rather than directly accessed or modified.
-
-### 3. How did I implement polymorphism?
-
-I implemented polymorphism by overriding late_fee()
-in Book, Magazine and DVD.
-
-Each class calculates its fee using a different daily rate.
-
-In main.py, I created a mixed list containing all three
-item types and called late_fee() inside one loop.
-
-Python automatically executes the correct method
-depending on the object's class, without requiring
-conditional type checks.
+`LibraryItem.total_items` is a class attribute shared by all objects of the LibraryItem class and its child classes, so it keeps track of the total number of library items created. In contrast, `self.title` is an instance attribute that stores the individual title of each library item, meaning every object can have a different title.
 
 ## Conclusion
 
