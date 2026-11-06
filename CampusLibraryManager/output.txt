@@ -1,0 +1,38 @@
+========== LIBRARY MANAGEMENT SYSTEM ==========
+
+1. BORROWING ITEMS
+Alice successfully borrowed 'Python 101'.
+Alice borrowed: Book: Python 101 by A. Rao (ID 1)
+Could not borrow: 'Python 101' is already borrowed.
+
+2. BORROW LIMIT CHECK
+Bob successfully borrowed 'Tech Monthly'.
+Could not borrow: Bob has reached the borrowing limit of 1 items.
+
+3. INVALID RETURN CHECK
+Could not return: Alice has not borrowed 'Tech Monthly'.
+
+4. POLYMORPHISM - LATE FEE CALCULATION
+Book: Python 101 by A. Rao (ID 1) -> Late fee for 3 days: Rs 6
+Magazine: Tech Monthly, Issue No: 45 (ID 2) -> Late fee for 3 days: Rs 3
+DVD: Python Programming, Duration: 120 minutes (ID 3) -> Late fee for 3 days: Rs 15
+
+5. RETURN ITEM AND CALCULATE LATE FEE
+Alice successfully returned 'Python 101'.
+Late fee to be paid: Rs 6
+
+6. ENCAPSULATION CHECK
+Cannot access private attribute '__available' directly.
+Book availability using method: True
+
+7. MEMBER BORROWED ITEMS
+Alice's borrowed items: []
+Bob's borrowed items: ['Tech Monthly']
+
+8. TOTAL LIBRARY ITEMS
+Total items created: 3
+
+9. ABSTRACT CLASS CHECK
+Cannot create LibraryItem directly: Can't instantiate abstract class LibraryItem without an implementation for abstract method 'late_fee'
+
+========== PROGRAM COMPLETED ==========
